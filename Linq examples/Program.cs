@@ -1,4 +1,50 @@
 ﻿
+using Linq_examples;
+
+List<Student> students = new List<Student>()
+{
+    new Student {Id = 00001, Name = "mehrshad", Age =21 , Family = "khaki"},
+    new Student {Id = 00002, Name = "amir", Age =22, Family = "kochaki"},
+    new Student {Id = 00003, Name = "ahmad", Age =21, Family = "heidari"},
+    new Student {Id = 00004, Name = "mehdi", Age =22, Family = "ahmadvand"}
+};                           
+
+// where 
+var query = students.Where(x => x.Name == "mehrshad");
+
+foreach (var item in query)
+{
+    Console.WriteLine($"the id is {item.Id} and his age is {item.Age} , name is {item.Name}");
+}
+
+// select
+var query2 = students.Select(x => new Student
+{
+    Age = x.Age,
+    Name = x.Name
+});
+foreach (var item in query2)
+{
+   Console.WriteLine($"name is {item.Name} , age is = {item.Age}");
+}
+
+
+// annonymouse
+var query3 = students.Select(x => new
+{
+    Id = x.Id,
+    fullname = $"{x.Name} {x.Family} "
+});
+foreach (var item in query3)
+{
+    Console.WriteLine($"full name is: {item.fullname} and Id : {item.Id}");
+}
+Console.ReadKey();
+
+
+
+
+
 
 
 
