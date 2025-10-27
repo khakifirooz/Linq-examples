@@ -1,32 +1,51 @@
 ﻿// filterfing ( Where , OfType)
 
-string[] names = { "mohammad", " ali", "reza", "nima", "akram", "zahra" };
 
-var query = names.Where(x => CheckLenght(x));
+List<object> source = new List<object>
+{
+    new Person(){Id = 101 , Name = "Mohammd"},
+    new Person(){Id = 102 , Name = "Ali"},
+    new User(){Id = 201, Family = "Abari"},
+    new User(){Id = 202, Family = "Khakifirooz"}
+};
+
+var query = source.OfType<Person>();
 foreach (var item in query)
 {
-    Console.WriteLine(item);
+    Console.WriteLine($"Id is: {item.Id} and Name is: {item.Name}");
 }
 
 
-static bool CheckLenght(string str)
+public class Person
 {
-    if (str.Length > 5)   // mohammad is the output
-        return true;
-    return false;
+    public int Id { get; set; }
+    public string Name { get; set; }
 }
 
-Console.ReadKey();
+
+public class User
+{
+    public int Id { get; set; }
+    public string Family { get; set; }
+}
+
+//string[] names = { "mohammad", " ali", "reza", "nima", "akram", "zahra" };
+
+//var query = names.Where(x => CheckLenght(x));
+//foreach (var item in query)
+//{
+//    Console.WriteLine(item);
+//}
 
 
+//static bool CheckLenght(string str)
+//{
+//    if (str.Length > 5)   // mohammad is the output
+//        return true;
+//    return false;
+//}
 
-
-
-
-
-
-
-
+//Console.ReadKey();
 
 
 
