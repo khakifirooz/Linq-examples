@@ -1,33 +1,64 @@
-﻿// filterfing ( Where , OfType)
+﻿// ordering 
 
-
-List<object> source = new List<object>
+List<Student> students = new List<Student>()
 {
-    new Person(){Id = 101 , Name = "Mohammd"},
-    new Person(){Id = 102 , Name = "Ali"},
-    new User(){Id = 201, Family = "Abari"},
-    new User(){Id = 202, Family = "Khakifirooz"}
+    new Student{Id = 101, Name = "Mehrshad", Family = "Khaki", Age = 21},
+    new Student{Id = 103, Name = "Ahmad", Family = "Heidari", Age = 22},
+    new Student{Id = 100, Name = "abas", Family = "Rashedi", Age = 22},
+    new Student{Id = 104, Name = "Mehdi", Family = "Ahmadvand", Age = 21},
+    new Student{Id = 102, Name = "Amir", Family = "Kochaki", Age = 20}
 };
 
-var query = source.OfType<Person>();
+var query = students.OrderBy(x => x.Id);
 foreach (var item in query)
 {
-    Console.WriteLine($"Id is: {item.Id} and Name is: {item.Name}");
+    Console.WriteLine($"Id: {item.Id}, Name: {item.Name}");
 }
 
-
-public class Person
+var query2 = students.OrderByDescending(x => x.Name).ThenBy(x => x.Id);
+foreach (var item in query2)
+{
+    Console.WriteLine($"Id: {item.Id}, Name: {item.Name}");
+}
+public class Student
 {
     public int Id { get; set; }
     public string Name { get; set; }
-}
-
-
-public class User
-{
-    public int Id { get; set; }
     public string Family { get; set; }
+    public int Age { get; set; }
 }
+
+
+// filterfing ( Where , OfType)
+
+
+//List<object> source = new List<object>
+//{
+//    new Person(){Id = 101 , Name = "Mohammd"},
+//    new Person(){Id = 102 , Name = "Ali"},
+//    new User(){Id = 201, Family = "Abari"},
+//    new User(){Id = 202, Family = "Khakifirooz"}
+//};
+
+//var query = source.OfType<Person>();
+//foreach (var item in query)
+//{
+//    Console.WriteLine($"Id is: {item.Id} and Name is: {item.Name}");
+//}
+
+
+//public class Person
+//{
+//    public int Id { get; set; }
+//    public string Name { get; set; }
+//}
+
+
+//public class User
+//{
+//    public int Id { get; set; }
+//    public string Family { get; set; }
+//}
 
 //string[] names = { "mohammad", " ali", "reza", "nima", "akram", "zahra" };
 
