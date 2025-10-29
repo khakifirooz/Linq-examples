@@ -1,32 +1,52 @@
-﻿// ordering 
+﻿//reverse
 
-List<Student> students = new List<Student>()
-{
-    new Student{Id = 101, Name = "Mehrshad", Family = "Khaki", Age = 21},
-    new Student{Id = 103, Name = "Ahmad", Family = "Heidari", Age = 22},
-    new Student{Id = 100, Name = "abas", Family = "Rashedi", Age = 22},
-    new Student{Id = 104, Name = "Mehdi", Family = "Ahmadvand", Age = 21},
-    new Student{Id = 102, Name = "Amir", Family = "Kochaki", Age = 20}
-};
+int[] numbers = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 
-var query = students.OrderBy(x => x.Id);
+var query = numbers.Reverse();
 foreach (var item in query)
 {
-    Console.WriteLine($"Id: {item.Id}, Name: {item.Name}");
+    Console.WriteLine(item);
 }
 
-var query2 = students.OrderByDescending(x => x.Name).ThenBy(x => x.Id);
-foreach (var item in query2)
+List<int> numbers2 = new List<int>() { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+numbers2.Reverse();
+foreach (var item in numbers2)
 {
-    Console.WriteLine($"Id: {item.Id}, Name: {item.Name}");
+    Console.WriteLine(item);
 }
-public class Student
-{
-    public int Id { get; set; }
-    public string Name { get; set; }
-    public string Family { get; set; }
-    public int Age { get; set; }
-}
+
+
+
+
+// ordering 
+
+//List<Student> students = new List<Student>()
+//{
+//    new Student{Id = 101, Name = "Mehrshad", Family = "Khaki", Age = 21},
+//    new Student{Id = 103, Name = "Ahmad", Family = "Heidari", Age = 22},
+//    new Student{Id = 100, Name = "abas", Family = "Rashedi", Age = 22},
+//    new Student{Id = 104, Name = "Mehdi", Family = "Ahmadvand", Age = 21},
+//    new Student{Id = 102, Name = "Amir", Family = "Kochaki", Age = 20}
+//};
+
+//var query = students.OrderBy(x => x.Id);
+//foreach (var item in query)
+//{
+//    Console.WriteLine($"Id: {item.Id}, Name: {item.Name}");
+//}
+
+//var query2 = students.OrderByDescending(x => x.Name).ThenBy(x => x.Id);
+//foreach (var item in query2)
+//{
+//    Console.WriteLine($"Id: {item.Id}, Name: {item.Name}");
+//}
+//public class Student
+//{
+//    public int Id { get; set; }
+//    public string Name { get; set; }
+//    public string Family { get; set; }
+//    public int Age { get; set; }
+//}
 
 
 // filterfing ( Where , OfType)
